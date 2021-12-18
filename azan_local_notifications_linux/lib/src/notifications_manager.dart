@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:dbus/dbus.dart';
 import 'package:flutter/foundation.dart';
-import 'package:azan_local_notifications_platform_interface/azan_local_notifications_platform_interface.dart';
+import 'package:azan_notifications_platform/azan_notifications_platform.dart';
 import 'package:path/path.dart' as path;
 
 import 'dbus_wrapper.dart';

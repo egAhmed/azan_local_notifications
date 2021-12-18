@@ -1,6 +1,6 @@
 # azan_local_notifications
 
-A new flutter plugin project.
+A new Flutter project.
 
 ## Getting Started
 

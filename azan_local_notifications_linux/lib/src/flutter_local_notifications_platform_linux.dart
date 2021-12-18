@@ -1,15 +1,15 @@
-import 'package:azan_local_notifications_platform_interface/azan_local_notifications_platform_interface.dart';
+import 'package:azan_notifications_platform/azan_notifications_platform.dart';
 
 import 'model/capabilities.dart';
 import 'model/initialization_settings.dart';
 import 'model/notification_details.dart';
 
-export 'package:azan_local_notifications_platform_interface/azan_local_notifications_platform_interface.dart';
+export 'package:azan_notifications_platform/azan_notifications_platform.dart';
 
 /// The interface that all implementations of flutter_local_notifications_linux
 /// must implement.
 abstract class AzanLocalNotificationsPlatformLinux
-    extends AzanLocalNotificationsPlatformInterface {
+    extends AzanLocalNotificationsPlatform {
   /// Initializes the plugin.
   ///
   /// Call this method on application before using the plugin further.

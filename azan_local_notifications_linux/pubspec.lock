@@ -29,10 +29,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.8.1"
-  azan_local_notifications_platform_interface:
+  azan_notifications_platform:
     dependency: "direct main"
     description:
-      path: "../azan_local_notifications_platform_interface"
+      path: "../azan_notifications_platform"
       relative: true
     source: path
     version: "0.0.1"

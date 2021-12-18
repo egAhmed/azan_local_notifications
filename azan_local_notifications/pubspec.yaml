@@ -1,7 +1,7 @@
 name: azan_local_notifications
-description: A new flutter plugin project.
+description: A new Flutter project.
 version: 0.0.1
-homepage: https://github.com/egAhmed/azan_local_notifications
+homepage:
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -10,11 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   timezone: ^0.8.0
   clock: ^1.1.0
 
-  azan_local_notifications_platform_interface: 
-    path: ../azan_local_notifications_platform_interface
+  azan_notifications_platform: 
+    path: ../azan_notifications_platform
   azan_local_notifications_linux: 
     path: ../azan_local_notifications_linux
 
@@ -37,7 +38,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.ahmed.azanlocalnotifications
+        package: com.ahmed.azan_local_notifications
         pluginClass: AzanLocalNotificationsPlugin
 
   # To add assets to your plugin package, add an assets section, like this:

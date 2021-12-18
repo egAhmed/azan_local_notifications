@@ -4,7 +4,7 @@ import 'package:clock/clock.dart';
 
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:azan_local_notifications_platform_interface/azan_local_notifications_platform_interface.dart';
+import 'package:azan_notifications_platform/azan_notifications_platform.dart';
 import 'package:timezone/timezone.dart';
 
 import 'helpers.dart';
@@ -33,7 +33,7 @@ const MethodChannel _channel =
 
 /// An implementation of a local notifications platform using method channels.
 class MethodChannelFlutterLocalNotificationsPlugin
-    extends AzanLocalNotificationsPlatformInterface {
+    extends AzanLocalNotificationsPlatform {
   @override
   Future<void> cancel(int id) {
     validateId(id);

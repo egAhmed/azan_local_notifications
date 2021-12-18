@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:azan_local_notifications_linux/azan_local_notifications_linux.dart';
-import 'package:azan_local_notifications_platform_interface/azan_local_notifications_platform_interface.dart';
+import 'package:azan_notifications_platform/azan_notifications_platform.dart';
 import 'package:timezone/timezone.dart';
 
 import 'initialization_settings.dart';
@@ -29,16 +29,16 @@ class AzanLocalNotificationsPlugin {
       return;
     }
     if (defaultTargetPlatform == TargetPlatform.android) {
-      AzanLocalNotificationsPlatformInterface.instance =
+      AzanLocalNotificationsPlatform.instance =
           AndroidFlutterLocalNotificationsPlugin();
     } else if (defaultTargetPlatform == TargetPlatform.iOS) {
-      AzanLocalNotificationsPlatformInterface.instance =
+      AzanLocalNotificationsPlatform.instance =
           IOSFlutterLocalNotificationsPlugin();
     } else if (defaultTargetPlatform == TargetPlatform.macOS) {
-      AzanLocalNotificationsPlatformInterface.instance =
+      AzanLocalNotificationsPlatform.instance =
           MacOSFlutterLocalNotificationsPlugin();
     } else if (defaultTargetPlatform == TargetPlatform.linux) {
-      AzanLocalNotificationsPlatformInterface.instance =
+      AzanLocalNotificationsPlatform.instance =
           LinuxFlutterLocalNotificationsPlugin();
     }
   }
@@ -47,19 +47,19 @@ class AzanLocalNotificationsPlugin {
       AzanLocalNotificationsPlugin._();
 
   /// Returns the underlying platform-specific implementation of given type [T],
-  /// which must be a concrete subclass of [AzanLocalNotificationsPlatformInterface](https://pub.dev/documentation/flutter_local_notifications_platform_interface/latest/flutter_local_notifications_platform_interface/AzanLocalNotificationsPlatformInterface-class.html)
+  /// which must be a concrete subclass of [AzanLocalNotificationsPlatform](https://pub.dev/documentation/flutter_local_notifications_platform_interface/latest/flutter_local_notifications_platform_interface/AzanLocalNotificationsPlatform-class.html)
   ///
   /// Requires running on the appropriate platform that matches the specified
   /// type for a result to be returned. For example, when the specified type
   /// argument is of type [AndroidFlutterLocalNotificationsPlugin], this will
   /// only return a result of that type when running on Android.
   T? resolvePlatformSpecificImplementation<
-      T extends AzanLocalNotificationsPlatformInterface>() {
-    if (T == AzanLocalNotificationsPlatformInterface) {
+      T extends AzanLocalNotificationsPlatform>() {
+    if (T == AzanLocalNotificationsPlatform) {
       throw ArgumentError.value(
           T,
           'The type argument must be a concrete subclass of '
-          'AzanLocalNotificationsPlatformInterface');
+          'AzanLocalNotificationsPlatform');
     }
     if (kIsWeb) {
       return null;
@@ -67,24 +67,24 @@ class AzanLocalNotificationsPlugin {
 
     if (defaultTargetPlatform == TargetPlatform.android &&
         T == AndroidFlutterLocalNotificationsPlugin &&
-        AzanLocalNotificationsPlatformInterface.instance
+        AzanLocalNotificationsPlatform.instance
             is AndroidFlutterLocalNotificationsPlugin) {
-      return AzanLocalNotificationsPlatformInterface.instance as T?;
+      return AzanLocalNotificationsPlatform.instance as T?;
     } else if (defaultTargetPlatform == TargetPlatform.iOS &&
         T == IOSFlutterLocalNotificationsPlugin &&
-        AzanLocalNotificationsPlatformInterface.instance
+        AzanLocalNotificationsPlatform.instance
             is IOSFlutterLocalNotificationsPlugin) {
-      return AzanLocalNotificationsPlatformInterface.instance as T?;
+      return AzanLocalNotificationsPlatform.instance as T?;
     } else if (defaultTargetPlatform == TargetPlatform.macOS &&
         T == MacOSFlutterLocalNotificationsPlugin &&
-        AzanLocalNotificationsPlatformInterface.instance
+        AzanLocalNotificationsPlatform.instance
             is MacOSFlutterLocalNotificationsPlugin) {
-      return AzanLocalNotificationsPlatformInterface.instance as T?;
+      return AzanLocalNotificationsPlatform.instance as T?;
     } else if (defaultTargetPlatform == TargetPlatform.linux &&
         T == LinuxFlutterLocalNotificationsPlugin &&
-        AzanLocalNotificationsPlatformInterface.instance
+        AzanLocalNotificationsPlatform.instance
             is LinuxFlutterLocalNotificationsPlugin) {
-      return AzanLocalNotificationsPlatformInterface.instance as T?;
+      return AzanLocalNotificationsPlatform.instance as T?;
     }
 
     return null;
@@ -172,7 +172,7 @@ class AzanLocalNotificationsPlugin {
               MacOSFlutterLocalNotificationsPlugin>()
           ?.getNotificationAppLaunchDetails();
     } else {
-      return await AzanLocalNotificationsPlatformInterface.instance
+      return await AzanLocalNotificationsPlatform.instance
               .getNotificationAppLaunchDetails() ??
           const NotificationAppLaunchDetails(false, null);
     }
@@ -214,7 +214,7 @@ class AzanLocalNotificationsPlugin {
               notificationDetails: notificationDetails?.linux,
               payload: payload);
     } else {
-      await AzanLocalNotificationsPlatformInterface.instance.show(id, title, body);
+      await AzanLocalNotificationsPlatform.instance.show(id, title, body);
     }
   }
 
@@ -235,7 +235,7 @@ class AzanLocalNotificationsPlugin {
               AndroidFlutterLocalNotificationsPlugin>()
           ?.cancel(id, tag: tag);
     } else {
-      await AzanLocalNotificationsPlatformInterface.instance.cancel(id);
+      await AzanLocalNotificationsPlatform.instance.cancel(id);
     }
   }
 
@@ -244,7 +244,7 @@ class AzanLocalNotificationsPlugin {
   /// This applies to notifications that have been scheduled and those that
   /// have already been presented.
   Future<void> cancelAll() async {
-    await AzanLocalNotificationsPlatformInterface.instance.cancelAll();
+    await AzanLocalNotificationsPlatform.instance.cancelAll();
   }
 
   /// Schedules a notification to be shown at the specified date and time.
@@ -398,7 +398,7 @@ class AzanLocalNotificationsPlugin {
           ?.periodicallyShow(id, title, body, repeatInterval,
               notificationDetails: notificationDetails.macOS, payload: payload);
     } else {
-      await AzanLocalNotificationsPlatformInterface.instance
+      await AzanLocalNotificationsPlatform.instance
           .periodicallyShow(id, title, body, repeatInterval);
     }
   }
@@ -474,5 +474,5 @@ class AzanLocalNotificationsPlugin {
 
   /// Returns a list of notifications pending to be delivered/shown.
   Future<List<PendingNotificationRequest>> pendingNotificationRequests() =>
-      AzanLocalNotificationsPlatformInterface.instance.pendingNotificationRequests();
+      AzanLocalNotificationsPlatform.instance.pendingNotificationRequests();
 }

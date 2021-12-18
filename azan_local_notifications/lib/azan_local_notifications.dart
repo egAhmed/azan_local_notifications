@@ -1,6 +1,6 @@
 
 export 'package:azan_local_notifications_linux/azan_local_notifications_linux.dart';
-export 'package:azan_local_notifications_platform_interface/azan_local_notifications_platform_interface.dart'
+export 'package:azan_notifications_platform/azan_notifications_platform.dart'
     show
         SelectNotificationCallback,
         PendingNotificationRequest,

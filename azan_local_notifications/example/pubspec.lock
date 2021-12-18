@@ -29,10 +29,10 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
-  azan_local_notifications_platform_interface:
+  azan_notifications_platform:
     dependency: transitive
     description:
-      path: "../../azan_local_notifications_platform_interface"
+      path: "../../azan_notifications_platform"
       relative: true
     source: path
     version: "0.0.1"

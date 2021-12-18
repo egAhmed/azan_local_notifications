@@ -10,12 +10,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  #flutter_local_notifications_linux: ^0.4.0
-  # azan_notifications_platform_interface: 
-  #   git:
-  #     url: https://github.com/egAhmed/azan_local_notifications.git
-  #     path: azan_local_notifications_platform_interface
-  #     ref: main
+  azan_local_notifications_linux:
+    git:
+      url: https://github.com/egAhmed/azan_local_notifications.git
+      path: azan_local_notifications_linux
+      ref: main
+  azan_notifications_platform_interface: 
+    git:
+      url: https://github.com/egAhmed/azan_local_notifications.git
+      path: azan_local_notifications_platform_interface
+      ref: main
    
   timezone: ^0.8.0
 

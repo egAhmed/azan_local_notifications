@@ -15,6 +15,14 @@ dependencies:
   path: ^1.8.1
   dbus: ^0.6.6
 
+  azan_local_notifications: 
+    publish_to:
+      url: https://github.com/egAhmed/azan_local_notifications.git
+      path: azan_local_notifications_platform_interface
+      ref: main
+
+ 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

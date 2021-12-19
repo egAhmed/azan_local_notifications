@@ -202,7 +202,7 @@ class LinuxNotificationManager {
         ),
       );
 
-  // TODO(proninyaroslav): add actions
+  
   List<String> _buildActions(
     LinuxNotificationDetails? details,
     LinuxInitializationSettings initSettings,
@@ -308,7 +308,7 @@ class LinuxNotificationManager {
 
         final int systemId = (s.values[0] as DBusUint32).value;
         final String actionKey = (s.values[1] as DBusString).value;
-        // TODO(proninyaroslav): add actions
+       
         if (actionKey == _kDefaultActionName) {
           final LinuxNotificationInfo? notify =
               await _storage.getBySystemId(systemId);

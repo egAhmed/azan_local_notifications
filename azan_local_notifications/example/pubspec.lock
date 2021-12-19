@@ -21,21 +21,21 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.0.2"
   azan_local_notifications_linux:
     dependency: transitive
     description:
-      path: "../../azan_local_notifications_linux"
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: azan_local_notifications_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   azan_notifications_platform:
     dependency: transitive
     description:
-      path: "../../azan_notifications_platform"
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: azan_notifications_platform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   boolean_selector:
     dependency: transitive
     description:

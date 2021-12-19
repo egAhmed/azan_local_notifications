@@ -1,7 +1,7 @@
 name: azan_local_notifications_linux
 description: A new Flutter project.
-version: 0.0.1
-homepage:
+version: 0.0.2
+homepage: https://github.com/egAhmed/azan_local_notifications
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -14,9 +14,7 @@ dependencies:
   xdg_directories: ^0.2.0
   path: ^1.8.0
   dbus: ^0.6.6
-  #azan_local_notifications
-  azan_notifications_platform: 
-    path: ../azan_notifications_platform
+  azan_notifications_platform: ^0.0.2
 
 dev_dependencies:
   flutter_test:

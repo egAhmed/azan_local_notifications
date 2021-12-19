@@ -32,10 +32,10 @@ packages:
   azan_notifications_platform:
     dependency: "direct main"
     description:
-      path: "../azan_notifications_platform"
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: azan_notifications_platform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   boolean_selector:
     dependency: transitive
     description:
